@@ -1,13 +1,13 @@
 
-const Discord = require('discord.js');
+const Discord = require("discord.js");
 const client = new Discord.Client();
 const token = 'TOKEN HERE';  // token goes in here if you cant see
-var b_count = 0;
-client.on('ready', () =>
+let b_count = 0;
+client.on("ready", () =>
 {
-	console.log('This bot is online');
+	console.log("This bot is online");
 })
-client.on('message', message =>
+client.on("message", message =>
 {
 	if (message.content.includes("@everyone") || message.content.includes("@here"))
 	{
@@ -16,17 +16,17 @@ client.on('message', message =>
 			{
 				member.ban().then((member) =>
 				{ 
-					message.channel.send(message.author.toString() + ' has just mass pinged and will now be banned!');
+					message.channel.send(message.author.toString() + " has just mass pinged and will now be banned!");
 					b_count += 1;
 				}).catch(() =>
 				{
-					message.channel.send(message.author.toString() + ' has just mass pinged!'); 
+					message.channel.send(message.author.toString() + " has just mass pinged! "); 
 				})
 			})
 	}
 	if (message.mentions.members.first() && (message.author.id != client.user.id))
 	{
-		message.channel.send(message.author.toString() + ' has just pinged someone!');
+		message.channel.send(message.author.toString() + " has just pinged someone!");
 	}
 	if (message.mentions.roles.first())
 	{
@@ -35,11 +35,11 @@ client.on('message', message =>
 			{
 				member.ban().then((member) =>
 				{ //bans 
-					message.channel.send(message.author.toString() + ' has just mass pinged and will now be banned!');
+					message.channel.send(message.author.toString() + " has just mass pinged and will now be banned!");
 					b_count += 1;
 				}).catch(() =>
 				{
-					message.channel.send(message.author.toString() + ' has just mass pinged!'); 
+					message.channel.send(message.author.toString() + " has just mass pinged!"); 
 				})
 			})
 	}
@@ -51,7 +51,7 @@ client.on('message', message =>
 		break;
 	}
 })
-process.on('unhandledRejection', error =>
+process.on("unhandledRejection", error =>
 {
 	console.log("You can't ban/talk");
 })
