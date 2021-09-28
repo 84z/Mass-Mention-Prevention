@@ -1,4 +1,3 @@
-
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const token = 'TOKEN HERE';  // token goes in here if you cant see
